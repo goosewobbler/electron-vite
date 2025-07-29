@@ -2,7 +2,7 @@ import { cac } from 'cac';
 import colors from 'picocolors';
 import { createLogger } from 'vite';
 
-var version = "4.0.0";
+var version = "4.0.1-next.0";
 
 const cli = cac('electron-vite');
 function createInlineConfig(root, options) {
