@@ -501,7 +501,7 @@ function electronRendererVitePlugin(options) {
                 const root = options?.root || fs.realpathSync.native(process.cwd());
                 config.base =
                     config.mode === 'production' || process.env.NODE_ENV_ELECTRON_VITE === 'production' ? './' : config.base;
-                config.root = config.root || './src/renderer';
+                config.root = config.root || path.resolve(root, 'src/renderer');
                 const chromeTarget = getElectronChromeTarget();
                 const emptyOutDir = () => {
                     let outDir = config.build?.outDir;

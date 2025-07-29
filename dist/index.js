@@ -1,10 +1,10 @@
 import { createFilter, normalizePath, mergeConfig } from 'vite';
 export { createLogger, defineConfig as defineViteConfig, mergeConfig } from 'vite';
-import { g as getElectronPath, t as toRelativePath, l as loadPackageData } from './chunks/lib-DWMFEP9j.js';
-export { d as defineConfig, b as loadConfigFromFile, a as loadEnv, r as resolveConfig } from './chunks/lib-DWMFEP9j.js';
-export { createServer } from './chunks/lib-BNfz0x5B.js';
-export { build } from './chunks/lib-CGdbJ7NO.js';
-export { preview } from './chunks/lib-BrEQOchg.js';
+import { g as getElectronPath, t as toRelativePath, l as loadPackageData } from './chunks/lib-CVeA6bk8.js';
+export { d as defineConfig, b as loadConfigFromFile, a as loadEnv, r as resolveConfig } from './chunks/lib-CVeA6bk8.js';
+export { createServer } from './chunks/lib-DOoNodWz.js';
+export { build } from './chunks/lib-B3vdnG7t.js';
+export { preview } from './chunks/lib-BYhusyTx.js';
 import path from 'node:path';
 import fs from 'node:fs';
 import { spawn } from 'node:child_process';
