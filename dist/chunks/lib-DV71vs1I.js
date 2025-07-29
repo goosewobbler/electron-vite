@@ -1,7 +1,7 @@
 import colors from 'picocolors';
 import { createLogger } from 'vite';
-import { s as startElectron } from './lib-CVeA6bk8.js';
-import { build } from './lib-B3vdnG7t.js';
+import { s as startElectron } from './lib-C1zMEVVy.js';
+import { build } from './lib-jO_3NzEK.js';
 import 'node:path';
 import 'node:fs';
 import 'node:url';
