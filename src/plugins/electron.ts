@@ -57,7 +57,7 @@ export function electronMainVitePlugin(options?: ElectronPluginOptions): Plugin[
       apply: 'build',
       enforce: 'pre',
       config(config): void {
-        const root = options?.root || process.cwd()
+        const root = options?.root || fs.realpathSync.native(process.cwd())
 
         const nodeTarget = getElectronNodeTarget()
 
@@ -189,7 +189,7 @@ export function electronPreloadVitePlugin(options?: ElectronPluginOptions): Plug
       apply: 'build',
       enforce: 'pre',
       config(config): void {
-        const root = options?.root || process.cwd()
+        const root = options?.root || fs.realpathSync.native(process.cwd())
 
         const nodeTarget = getElectronNodeTarget()
 
@@ -340,7 +340,7 @@ export function electronRendererVitePlugin(options?: ElectronPluginOptions): Plu
       name: 'vite:electron-renderer-preset-config',
       enforce: 'pre',
       config(config): void {
-        const root = options?.root || process.cwd()
+        const root = options?.root || fs.realpathSync.native(process.cwd())
 
         config.base =
           config.mode === 'production' || process.env.NODE_ENV_ELECTRON_VITE === 'production' ? './' : config.base
