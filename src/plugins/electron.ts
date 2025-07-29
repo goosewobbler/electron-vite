@@ -354,7 +354,7 @@ export function electronRendererVitePlugin(options?: ElectronPluginOptions): Plu
 
         config.base =
           config.mode === 'production' || process.env.NODE_ENV_ELECTRON_VITE === 'production' ? './' : config.base
-        config.root = config.root || path.resolve(root, 'src/renderer')
+        config.root = path.resolve(root, config.root || 'src/renderer')
 
         console.log('[electron-vite DEBUG]   config.root after:', config.root)
         console.log('[electron-vite DEBUG]   path.resolve(root, "src/renderer"):', path.resolve(root, 'src/renderer'))

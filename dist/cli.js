@@ -61,7 +61,7 @@ cli
     if (options.entry) {
         process.env.ELECTRON_ENTRY = options.entry;
     }
-    const { createServer } = await import('./chunks/lib-BLtsx9Bj.js');
+    const { createServer } = await import('./chunks/lib-oJnfB_li.js');
     const inlineConfig = createInlineConfig(root, options);
     try {
         await createServer(inlineConfig, { rendererOnly: options.rendererOnly });
@@ -74,7 +74,7 @@ cli
 });
 // build
 cli.command('build [root]', 'build for production').action(async (root, options) => {
-    const { build } = await import('./chunks/lib-jO_3NzEK.js');
+    const { build } = await import('./chunks/lib-hGhF46E7.js');
     const inlineConfig = createInlineConfig(root, options);
     if (options.entry) {
         process.env.ELECTRON_ENTRY = options.entry;
@@ -94,7 +94,7 @@ cli
     .option('--noSandbox', `[boolean] forces renderer process to run un-sandboxed`)
     .option('--skipBuild', `[boolean] skip build`)
     .action(async (root, options) => {
-    const { preview } = await import('./chunks/lib-DV71vs1I.js');
+    const { preview } = await import('./chunks/lib-DyTCq2Qz.js');
     const inlineConfig = createInlineConfig(root, options);
     if (options.noSandbox) {
         process.env.NO_SANDBOX = '1';

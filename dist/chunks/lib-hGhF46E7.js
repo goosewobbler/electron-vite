@@ -1,5 +1,5 @@
 import { build as build$1 } from 'vite';
-import { r as resolveConfig } from './lib-C1zMEVVy.js';
+import { r as resolveConfig } from './lib-DdVOi3MX.js';
 import 'node:path';
 import 'node:fs';
 import 'node:url';
