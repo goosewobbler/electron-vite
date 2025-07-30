@@ -342,22 +342,9 @@ export function electronRendererVitePlugin(options?: ElectronPluginOptions): Plu
       config(config): void {
         const root = options?.root || fs.realpathSync.native(process.cwd())
 
-        console.log('[electron-vite DEBUG] electronRendererVitePlugin config phase:')
-        console.log('[electron-vite DEBUG]   process.cwd():', process.cwd())
-        console.log(
-          '[electron-vite DEBUG]   fs.realpathSync.native(process.cwd()):',
-          fs.realpathSync.native(process.cwd())
-        )
-        console.log('[electron-vite DEBUG]   options?.root:', options?.root)
-        console.log('[electron-vite DEBUG]   computed root:', root)
-        console.log('[electron-vite DEBUG]   config.root before:', config.root)
-
         config.base =
           config.mode === 'production' || process.env.NODE_ENV_ELECTRON_VITE === 'production' ? './' : config.base
         config.root = path.resolve(root, config.root || 'src/renderer')
-
-        console.log('[electron-vite DEBUG]   config.root after:', config.root)
-        console.log('[electron-vite DEBUG]   path.resolve(root, "src/renderer"):', path.resolve(root, 'src/renderer'))
 
         const chromeTarget = getElectronChromeTarget()
 
@@ -379,11 +366,7 @@ export function electronRendererVitePlugin(options?: ElectronPluginOptions): Plu
             target: chromeTarget,
             modulePreload: { polyfill: false },
             rollupOptions: {
-              input: (() => {
-                const input = findInput(root)
-                console.log('[electron-vite DEBUG]   rollupOptions.input:', input)
-                return input
-              })()
+              input: findInput(root)
             },
             reportCompressedSize: false,
             minify: false,
@@ -407,11 +390,6 @@ export function electronRendererVitePlugin(options?: ElectronPluginOptions): Plu
       name: 'vite:electron-renderer-resolved-config',
       enforce: 'post',
       configResolved(config): void {
-        console.log('[electron-vite DEBUG] electronRendererVitePlugin configResolved phase:')
-        console.log('[electron-vite DEBUG]   config.root:', config.root)
-        console.log('[electron-vite DEBUG]   config.build.rollupOptions.input:', config.build?.rollupOptions?.input)
-        console.log('[electron-vite DEBUG]   config.base:', config.base)
-
         if (config.base !== './' && config.base !== '/') {
           config.logger.warn(colors.yellow('(!) Should not set "base" option for the electron vite renderer config.'))
         }
